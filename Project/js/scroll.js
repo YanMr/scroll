@@ -7,13 +7,12 @@
 (function ($) {
     $.fn.easysroll= function(options) {
      var parameter= {
-            //默认配置参数
-            direction: "left", //滚动方向  left（向左）right（向右） top(向上) bottom(向下)
-            numberr: "1", //每一次滚动数量
-            delays:"1000",//完成一次动画所需时间
-            scrolling: "1000",//每一次动画的时间间隔
-            fadein: false,//是否支持淡入或淡出
-            enterStop:true  //鼠标移入是否暂停滚动
+            direction: "left",
+            numberr: "1",
+            delays:"1000",
+            scrolling: "1000",
+            fadein: false,
+            enterStop:true
          };
         var ops = $.extend(parameter,options);
         var $this=$(this);
@@ -21,16 +20,15 @@
         var _time=null;
         var obj=_this.find("[type='box']");
         var items=obj.find("li");
-        var itemsleg=items.length;//获取li的数目
-        var itemsW=items.outerWidth(true);//获取每个li元素的宽度
-        var itemsH=items.outerHeight(true);//获取每个li元素的高度
+        var itemsleg=items.length;
+        var itemsW=items.outerWidth(true);
+        var itemsH=items.outerHeight(true);
         var _direction=ops.direction;
         var _numberr =ops.numberr;
         var _delays=ops.delays;
         var _scrolling =ops.scrolling;
         var _fadein=ops.fadein;
         var _enterStop=ops.enterStop;
-        //判断获取盒子宽高等等数据
         if(_direction=="top" || _direction=="bottom")
         {
             items.css({"float":"none"});
@@ -50,7 +48,6 @@
             return true;
         }
         function scroll(){
-        //方向判断方向
         if(_direction=="left"){
               obj.animate({"margin-left":-_numberr*itemsW},Number(_delays),function(){
                  for (var i=0;i<_numberr;i++){
